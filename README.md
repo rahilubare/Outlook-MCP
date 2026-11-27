@@ -1,15 +1,11 @@
-# Outlook -> Website bridge (no Microsoft API, no credentials)
-Requires CLASSIC Outlook for Windows (not "new Outlook"), open and signed in.
+# MailRouter - Outlook folders to website (no Microsoft API, no credentials)
+Needs CLASSIC Outlook for Windows, open and signed in.
+Every Outlook mail folder becomes a department and all its emails appear under it. Emails still in the Inbox are
+auto-routed to a folder by rules learned from your filed mail, otherwise they stay under "Inbox".
 
-## Windows PC (reads Outlook, runs MCP + sync)
-   Quick start: edit then double-click run-windows.bat (website server: ./run-website.sh)
-1. `pip install -r requirements.txt`
-2. Set env vars: WEBSITE_URL, INGEST_TOKEN
-3. Auto-sync every 60s: `python agent.py`
-4. Claude Desktop config (%APPDATA%\Claude\claude_desktop_config.json):
-   {"mcpServers":{"outlook_router":{"command":"python","args":["C:\\path\\mcp_server.py"],
-    "env":{"WEBSITE_URL":"https://mail.yoursite.com","INGEST_TOKEN":"..."}}}}
+Local test: run `.\run-local.bat`, open http://localhost:8000 (admin / test123).
+Windows PC + remote website: see run-windows.bat and run-website.sh.
 
-## Website server (any host; HTTPS required)
-Set INGEST_TOKEN (same), DASHBOARD_PASS. Run: `uvicorn web:app --host 0.0.0.0 --port 8000`
-Edit rules.json to change departments/keywords/sender domains.
+Optional env vars: SYNC_PER_FOLDER (200), SYNC_SECONDS (60), LEARN_HOURS (24), MIN_SCORE (2),
+EXCLUDE_FOLDERS="Folder A,Folder B", INCLUDE_FOLDERS="Sent Items,Drafts", SESSION_SECRET.
+Optional custom_rules.json: {"Crew": {"keywords": ["roster"], "domains": ["agency.com"]}}

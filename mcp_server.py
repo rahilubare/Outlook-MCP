@@ -7,9 +7,9 @@ mcp = FastMCP("outlook_router")
 RO = {"readOnlyHint": True, "openWorldHint": True}
 
 @mcp.tool(annotations={"readOnlyHint": False, "idempotentHint": True, "openWorldHint": True})
-def outlook_sync_inbox(top: int = Field(25, ge=1, le=100, description="Newest N messages to pull")) -> dict:
-    """Pull newest Outlook inbox emails and auto-route new ones to departments using rules.json."""
-    return core.sync_inbox(top)
+def outlook_sync_inbox(per_folder: int = Field(200, ge=10, le=500, description="Newest N emails to read per folder")) -> dict:
+    """Sync ALL Outlook mail folders (Inbox and every subfolder). Each folder is a department; Inbox emails are auto-routed."""
+    return core.sync_inbox(per_folder)
 
 @mcp.tool(annotations=RO)
 def outlook_list_departments() -> list[str]:

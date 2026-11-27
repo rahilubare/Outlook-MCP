@@ -1,4 +1,43 @@
 {
+ "Archive (Inbox)": {
+  "folder": "Inbox/Archive",
+  "samples": 29,
+  "strong": [],
+  "learned": [
+   "jot",
+   "ship",
+   "erp",
+   "list"
+  ],
+  "domains": []
+ },
+ "Archive (2)": {
+  "folder": "Inbox/Archive (2)",
+  "samples": 101,
+  "strong": [],
+  "learned": [
+   "pms",
+   "jot",
+   "index",
+   "joterp",
+   "overdue",
+   "critical",
+   "appraisal",
+   "voyage",
+   "erp",
+   "port",
+   "report",
+   "vessels",
+   "call",
+   "activity",
+   "vessel"
+  ],
+  "domains": [
+   "sparkyemail.com",
+   "opalshipmgmt.com",
+   "peninsularmaritime.com"
+  ]
+ },
  "ProcessedEmails": {
   "folder": "Inbox/ProcessedEmails",
   "samples": 104,
@@ -8,73 +47,20 @@
   "learned": [
    "oct",
    "noon",
-   "files",
    "nov",
-   "onboard",
+   "files",
    "missing",
-   "issue",
+   "onboard",
    "svsm",
-   "report",
+   "issue",
    "rlmg",
+   "report",
    "sspl",
-   "seaknotiq",
    "ingl",
    "sss",
-   "purchase"
+   "order",
+   "culsm"
   ],
-  "domains": []
- },
- "Conversation Action Settings (This computer only)": {
-  "folder": "Conversation Action Settings (This computer only)",
-  "samples": 0,
-  "strong": [
-   "action",
-   "computer",
-   "conversation",
-   "only",
-   "settings"
-  ],
-  "learned": [],
-  "domains": []
- },
- "Quick Step Settings (This computer only)": {
-  "folder": "Quick Step Settings (This computer only)",
-  "samples": 0,
-  "strong": [
-   "computer",
-   "only",
-   "quick",
-   "settings",
-   "step"
-  ],
-  "learned": [],
-  "domains": []
- },
- "Sync Issues (This computer only)": {
-  "folder": "Sync Issues (This computer only)",
-  "samples": 150,
-  "strong": [
-   "computer",
-   "issues",
-   "only",
-   "sync"
-  ],
-  "learned": [
-   "synchronization",
-   "log"
-  ],
-  "domains": []
- },
- "Local Failures (This computer only)": {
-  "folder": "Sync Issues (This computer only)/Local Failures (This computer only)",
-  "samples": 0,
-  "strong": [
-   "computer",
-   "failures",
-   "local",
-   "only"
-  ],
-  "learned": [],
   "domains": []
  },
  "Data Management": {
@@ -108,12 +94,12 @@
    "chem",
    "added",
    "portal",
-   "jot",
    "issues",
-   "system",
+   "jot",
    "vessel",
-   "joterp",
-   "cul"
+   "system",
+   "cul",
+   "joterp"
   ],
   "domains": []
  },
@@ -125,20 +111,20 @@
   ],
   "learned": [
    "notes",
-   "pms",
-   "jot",
    "delivery",
+   "pms",
    "tranquility",
+   "jot",
    "system",
    "portal",
    "qms",
    "issue",
-   "report",
    "job",
-   "noon",
+   "report",
    "vessel",
-   "unable",
-   "office"
+   "noon",
+   "module",
+   "unable"
   ],
   "domains": []
  },
@@ -151,22 +137,36 @@
   "learned": [],
   "domains": []
  },
+ "Archive (Followup-up)": {
+  "folder": "_Followup-up/Archive",
+  "samples": 11,
+  "strong": [],
+  "learned": [
+   "undeliverable",
+   "portage",
+   "bill",
+   "jot",
+   "office",
+   "erp"
+  ],
+  "domains": []
+ },
  "Crew": {
   "folder": "_Followup-up/__Crew",
-  "samples": 34,
+  "samples": 33,
   "strong": [
    "crew"
   ],
   "learned": [
-   "crew",
    "sign",
    "cash",
-   "jot",
+   "crew",
    "issue",
    "report",
-   "portage",
    "rest",
+   "portage",
    "hour",
+   "jot",
    "bill",
    "unable"
   ],
@@ -174,40 +174,40 @@
  },
  "Purchase": {
   "folder": "_Followup-up/__Purchase",
-  "samples": 28,
+  "samples": 27,
   "strong": [
    "purchase"
   ],
   "learned": [
    "inventory",
    "dmra",
-   "sot",
-   "oil",
    "lub",
-   "requisition",
+   "oil",
+   "sot",
    "delivery",
-   "dec",
-   "jot",
-   "issue",
    "springvalley",
+   "requisition",
+   "dec",
    "sally",
    "purchase",
-   "report",
-   "invoice"
+   "jot",
+   "invoice",
+   "issue",
+   "report"
   ],
   "domains": []
  },
  "IT & Onboard": {
   "folder": "_Followup-up/__IT & Onboard",
-  "samples": 16,
+  "samples": 17,
   "strong": [
    "onboard"
   ],
   "learned": [
    "packet",
+   "missing",
    "office",
    "joterp",
-   "missing",
    "data",
    "install",
    "part",
@@ -219,18 +219,19 @@
  },
  "Missing Files": {
   "folder": "_Followup-up/__Missing Files",
-  "samples": 5,
+  "samples": 7,
   "strong": [
    "files",
    "missing"
   ],
   "learned": [
    "files",
+   "onboard",
+   "missing",
+   "volta",
    "royalmarine",
    "related",
-   "found",
-   "onboard",
-   "missing"
+   "found"
   ],
   "domains": []
  },
@@ -243,11 +244,11 @@
   ],
   "learned": [
    "hseq",
-   "jot",
    "svsm",
-   "erp",
+   "jot",
    "unable",
-   "cul"
+   "cul",
+   "erp"
   ],
   "domains": []
  },
@@ -256,25 +257,23 @@
   "samples": 150,
   "strong": [],
   "learned": [
-   "ver",
    "synchronizer",
+   "ver",
    "upgrade",
    "jot",
    "sign",
+   "nov",
    "off",
    "import",
-   "export",
-   "nov",
-   "bitu",
-   "pending",
-   "reminder",
    "voy",
    "deletion",
-   "packet"
+   "export",
+   "reminder",
+   "correction",
+   "pending",
+   "bitu"
   ],
-  "domains": [
-   "sendaltd.com"
-  ]
+  "domains": []
  },
  "Notifier mails": {
   "folder": "Notifier mails",
@@ -285,18 +284,18 @@
   "learned": [
    "received",
    "log",
+   "nov",
    "file",
    "springvalley",
-   "nov",
    "asml",
    "notifier",
-   "defect",
-   "noon",
    "months",
-   "certificate",
-   "list",
-   "email",
    "expiring",
+   "rlmg",
+   "certificate",
+   "noon",
+   "email",
+   "defect",
    "files"
   ],
   "domains": []
@@ -309,17 +308,17 @@
   ],
   "learned": [
    "aug",
-   "noon",
    "sep",
-   "files",
-   "onboard",
-   "missing",
+   "noon",
    "cullm",
+   "files",
    "sss",
+   "missing",
+   "onboard",
    "svsm",
+   "rlmg",
    "cul",
    "packet",
-   "rlmg",
    "ace",
    "mdl",
    "kamran"

@@ -18,53 +18,6 @@ a{color:inherit;text-decoration:none}
 input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 13px}
 """
 
-LANDING = r"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MailRouter - Outlook emails, routed to the right team</title>
-<style>/*BASE*/
-nav{max-width:1080px;margin:0 auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
-.hero{max-width:820px;margin:0 auto;padding:56px 20px 24px;text-align:center}
-.pill{display:inline-block;padding:5px 12px;border-radius:99px;background:var(--soft);color:var(--brand);font-weight:600;font-size:13px}
-h1{font-size:clamp(34px,6vw,56px);line-height:1.08;letter-spacing:-.03em;margin:18px 0 16px}
-.hero p{font-size:19px;color:var(--mute);max-width:620px;margin:0 auto 28px}
-.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.flow{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin:44px auto 0;color:var(--mute)}
-.chip{padding:8px 14px;border:1px solid var(--line);background:var(--card);border-radius:99px;font-weight:600;color:var(--ink);box-shadow:var(--shadow)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:56px 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
-.card h3{margin:12px 0 6px;font-size:17px}.card p{margin:0;color:var(--mute)}
-.ic{width:42px;height:42px;border-radius:11px;background:var(--soft);display:grid;place-items:center;font-size:20px}
-h2{font-size:28px;letter-spacing:-.02em;text-align:center;margin:8px 0}
-.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:28px 0 56px}
-.steps div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.steps div::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--brand);color:var(--brandink);font-weight:700;margin-bottom:10px}
-.steps b{display:block;margin-bottom:4px}.steps span{color:var(--mute)}
-footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;color:var(--mute);font-size:14px}
-</style>
-<nav><a class="brand" href="/"><span class="logo">&#9993;</span>MailRouter</a><a class="btn" href="/login">Sign in</a></nav>
-<section class="hero">
-<span class="pill">Outlook &rarr; the right team</span>
-<h1>Every email, routed to the right department.</h1>
-<p>MailRouter learns from the folders you already use in Outlook and sorts each new email to the team that needs it. No Microsoft login, no API fees.</p>
-<div class="cta"><a class="btn primary big" href="/login">Open dashboard</a><a class="btn big" href="#how">How it works</a></div>
-<div class="flow"><span class="chip">Outlook inbox</span>&rarr;<span class="chip">Learned rules</span>&rarr;<span class="chip">Finance</span><span class="chip">Support</span><span class="chip">Crew</span></div>
-</section>
-<div class="wrap">
-<div class="grid">
-<div class="card"><div class="ic">&#128193;</div><h3>Learns from your folders</h3><p>Folder names become departments. Keywords and sender domains are picked up from emails you have already filed.</p></div>
-<div class="card"><div class="ic">&#9889;</div><h3>Routes automatically</h3><p>New mail is scored against the learned rules every minute. Anything unclear lands in General for a human to decide.</p></div>
-<div class="card"><div class="ic">&#128274;</div><h3>Private by design</h3><p>A small bridge on your Windows PC reads Outlook locally and pushes to your own site. Nothing goes through a third party.</p></div>
-</div>
-<h2 id="how">How it works</h2>
-<div class="steps">
-<div><b>Bridge reads Outlook</b><span>A background agent on your PC reads the open, signed-in Outlook app.</span></div>
-<div><b>Rules decide</b><span>Folder names, learned keywords and sender domains pick the department.</span></div>
-<div><b>Teams see their mail</b><span>Each department opens its own view. Fix a mistake with one click.</span></div>
-</div>
-</div>
-<footer>MailRouter &middot; also available to AI assistants through an MCP server</footer>
-</html>""".replace("/*BASE*/", BASE_CSS)
-
 LOGIN = r"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sign in - MailRouter</title>
 <style>/*BASE*/
@@ -86,7 +39,6 @@ label{display:block;font-weight:600;font-size:14px;margin:16px 0 6px}
 <label for="p">Password</label><div class="field"><input id="p" type="password" autocomplete="current-password" required><button type="button" class="eye" id="eye" aria-label="Show password">Show</button></div>
 <div class="err" id="err" role="alert"></div>
 <button class="btn primary big" id="go" type="submit">Sign in</button>
-<a class="back" href="/">&larr; Back to home</a>
 </form></main>
 <script>
 const f=document.getElementById('f'),err=document.getElementById('err'),b=document.getElementById('go'),u=document.getElementById('u'),p=document.getElementById('p');
@@ -135,6 +87,7 @@ const PAGE=30;let S={dept:null,q:'',off:0,depts:[],counts:{},total:0};
 const $=s=>document.querySelector(s);
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 async function api(p,o){const r=await fetch(p,o);if(r.status===401){location.href='/login';throw new Error('signed out')}if(!r.ok)throw new Error((await r.text()).slice(0,200));return r.json()}
+const where=e=>{const f=(e.folder||'').replace(/^[\W_]+/,''),l=f.split('/').pop().replace(/^[\W_]+/,'');return f&&l!==e.department?' \u00b7 in '+f:''};
 const hue=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h};
 const ago=d=>{const s=(Date.now()-new Date(d))/1e3;if(isNaN(s))return'';if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';if(s<604800)return Math.floor(s/86400)+'d ago';return new Date(d).toLocaleDateString()};
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2200)}
@@ -157,7 +110,7 @@ function row(e){const r=el('div','row'),who=e.sender_name||e.sender||'?';
  const sel=el('select');sel.setAttribute('aria-label','Route to department');
  S.depts.forEach(d=>{const o=el('option','',d);o.value=d;o.selected=d===e.department;sel.append(o)});
  sel.onchange=async()=>{try{await api('/api/route',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email_id:e.id,department:sel.value})});toast('Moved to '+sel.value);await stats();await reload()}catch(x){toast('Could not move the email')}};
- r.append(av,el('div','sub1',e.subject||'(no subject)'),sel,el('div','meta',`${who} \u00b7 ${ago(e.received)}${e.routed_by==='manual'?' \u00b7 manual':''}`),el('div','prev',e.preview));return r}
+ r.append(av,el('div','sub1',e.subject||'(no subject)'),sel,el('div','meta',`${who} \u00b7 ${ago(e.received)}${e.routed_by==='manual'?' \u00b7 manual':''}${where(e)}`),el('div','prev',e.preview));return r}
 let t;$('#q').oninput=()=>{clearTimeout(t);t=setTimeout(()=>{S.q=$('#q').value.trim();reload()},300)};
 $('#out').onclick=async()=>{await fetch('/api/logout',{method:'POST'});location.href='/'};
 stats().then(()=>page(true));

@@ -1,5 +1,5 @@
 """MailRouter website. Run: uvicorn web:app --host 0.0.0.0 --port 8000  (put HTTPS in front of it)
-Pages: /  (public landing)   /login   /app (needs sign-in)   API: /api/*   Bridge push: /api/ingest"""
+Pages: /login      /app (needs sign-in)   API: /api/*   Bridge push: /api/ingest"""
 import base64, hashlib, hmac, os, secrets, time
 from collections import defaultdict
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
@@ -65,8 +65,9 @@ def logout():
     resp = JSONResponse({"ok": True}); resp.delete_cookie("sid"); return resp
 
 # ---- pages ----
-@app.get("/", response_class=HTMLResponse)
-def home(): return pages.LANDING
+@app.get("/")
+def home(request: Request):
+    return RedirectResponse("/app" if read_session(request.cookies.get("sid", "")) else "/login", 303)
 
 @app.get("/login", response_class=HTMLResponse)
 def login_page(request: Request):
@@ -98,14 +99,16 @@ def route(b: RouteBody):  # website-side reroute only; does not touch Outlook
 # ---- bridge push (bearer token only) ----
 class Email(BaseModel):
     id: str; subject: str = ""; sender: str = ""; sender_name: str = ""
-    received: str = ""; preview: str = ""; department: str = core.DEFAULT_DEPT; routed_by: str = "auto"
+    received: str = ""; preview: str = ""; folder: str = ""; department: str = core.DEFAULT_DEPT; routed_by: str = "auto"
 
 class IngestBody(BaseModel):
     emails: list[Email]
+    remove: list[str] = []
 
 @app.post("/api/ingest")
 def ingest(b: IngestBody, authorization: str = Header("")):
     tok = os.getenv("INGEST_TOKEN", "")
     if not tok or not hmac.compare_digest(authorization.encode(), f"Bearer {tok}".encode()):
         raise HTTPException(401, "Invalid ingest token")
+    core.remove_ids(b.remove)
     return {"new": core.upsert([e.model_dump() for e in b.emails])}
