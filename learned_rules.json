@@ -1,0 +1,338 @@
+{
+ "ProcessedEmails": {
+  "folder": "Inbox/ProcessedEmails",
+  "samples": 104,
+  "strong": [
+   "processedemails"
+  ],
+  "learned": [
+   "oct",
+   "noon",
+   "files",
+   "nov",
+   "onboard",
+   "missing",
+   "issue",
+   "svsm",
+   "report",
+   "rlmg",
+   "sspl",
+   "seaknotiq",
+   "ingl",
+   "sss",
+   "purchase"
+  ],
+  "domains": []
+ },
+ "Conversation Action Settings (This computer only)": {
+  "folder": "Conversation Action Settings (This computer only)",
+  "samples": 0,
+  "strong": [
+   "action",
+   "computer",
+   "conversation",
+   "only",
+   "settings"
+  ],
+  "learned": [],
+  "domains": []
+ },
+ "Quick Step Settings (This computer only)": {
+  "folder": "Quick Step Settings (This computer only)",
+  "samples": 0,
+  "strong": [
+   "computer",
+   "only",
+   "quick",
+   "settings",
+   "step"
+  ],
+  "learned": [],
+  "domains": []
+ },
+ "Sync Issues (This computer only)": {
+  "folder": "Sync Issues (This computer only)",
+  "samples": 150,
+  "strong": [
+   "computer",
+   "issues",
+   "only",
+   "sync"
+  ],
+  "learned": [
+   "synchronization",
+   "log"
+  ],
+  "domains": []
+ },
+ "Local Failures (This computer only)": {
+  "folder": "Sync Issues (This computer only)/Local Failures (This computer only)",
+  "samples": 0,
+  "strong": [
+   "computer",
+   "failures",
+   "local",
+   "only"
+  ],
+  "learned": [],
+  "domains": []
+ },
+ "Data Management": {
+  "folder": "_Followup-up/__Data Management",
+  "samples": 0,
+  "strong": [
+   "data",
+   "management"
+  ],
+  "learned": [],
+  "domains": []
+ },
+ "Implementation": {
+  "folder": "_Followup-up/__Implementation",
+  "samples": 0,
+  "strong": [
+   "implementation"
+  ],
+  "learned": [],
+  "domains": []
+ },
+ "Project": {
+  "folder": "_Followup-up/__Project",
+  "samples": 14,
+  "strong": [
+   "project"
+  ],
+  "learned": [
+   "recurring",
+   "meru",
+   "chem",
+   "added",
+   "portal",
+   "jot",
+   "issues",
+   "system",
+   "vessel",
+   "joterp",
+   "cul"
+  ],
+  "domains": []
+ },
+ "TechOps": {
+  "folder": "_Followup-up/__TechOps",
+  "samples": 57,
+  "strong": [
+   "techops"
+  ],
+  "learned": [
+   "notes",
+   "pms",
+   "jot",
+   "delivery",
+   "tranquility",
+   "system",
+   "portal",
+   "qms",
+   "issue",
+   "report",
+   "job",
+   "noon",
+   "vessel",
+   "unable",
+   "office"
+  ],
+  "domains": []
+ },
+ "Training": {
+  "folder": "_Followup-up/__Training",
+  "samples": 0,
+  "strong": [
+   "training"
+  ],
+  "learned": [],
+  "domains": []
+ },
+ "Crew": {
+  "folder": "_Followup-up/__Crew",
+  "samples": 34,
+  "strong": [
+   "crew"
+  ],
+  "learned": [
+   "crew",
+   "sign",
+   "cash",
+   "jot",
+   "issue",
+   "report",
+   "portage",
+   "rest",
+   "hour",
+   "bill",
+   "unable"
+  ],
+  "domains": []
+ },
+ "Purchase": {
+  "folder": "_Followup-up/__Purchase",
+  "samples": 28,
+  "strong": [
+   "purchase"
+  ],
+  "learned": [
+   "inventory",
+   "dmra",
+   "sot",
+   "oil",
+   "lub",
+   "requisition",
+   "delivery",
+   "dec",
+   "jot",
+   "issue",
+   "springvalley",
+   "sally",
+   "purchase",
+   "report",
+   "invoice"
+  ],
+  "domains": []
+ },
+ "IT & Onboard": {
+  "folder": "_Followup-up/__IT & Onboard",
+  "samples": 16,
+  "strong": [
+   "onboard"
+  ],
+  "learned": [
+   "packet",
+   "office",
+   "joterp",
+   "missing",
+   "data",
+   "install",
+   "part",
+   "amani",
+   "jot",
+   "erp"
+  ],
+  "domains": []
+ },
+ "Missing Files": {
+  "folder": "_Followup-up/__Missing Files",
+  "samples": 5,
+  "strong": [
+   "files",
+   "missing"
+  ],
+  "learned": [
+   "files",
+   "royalmarine",
+   "related",
+   "found",
+   "onboard",
+   "missing"
+  ],
+  "domains": []
+ },
+ "Awaiting Customization": {
+  "folder": "_Followup-up/__Awaiting Customization ",
+  "samples": 9,
+  "strong": [
+   "awaiting",
+   "customization"
+  ],
+  "learned": [
+   "hseq",
+   "jot",
+   "svsm",
+   "erp",
+   "unable",
+   "cul"
+  ],
+  "domains": []
+ },
+ "Processed": {
+  "folder": "_Processed",
+  "samples": 150,
+  "strong": [],
+  "learned": [
+   "ver",
+   "synchronizer",
+   "upgrade",
+   "jot",
+   "sign",
+   "off",
+   "import",
+   "export",
+   "nov",
+   "bitu",
+   "pending",
+   "reminder",
+   "voy",
+   "deletion",
+   "packet"
+  ],
+  "domains": [
+   "sendaltd.com"
+  ]
+ },
+ "Notifier mails": {
+  "folder": "Notifier mails",
+  "samples": 150,
+  "strong": [
+   "notifier"
+  ],
+  "learned": [
+   "received",
+   "log",
+   "file",
+   "springvalley",
+   "nov",
+   "asml",
+   "notifier",
+   "defect",
+   "noon",
+   "months",
+   "certificate",
+   "list",
+   "email",
+   "expiring",
+   "files"
+  ],
+  "domains": []
+ },
+ "SHILING": {
+  "folder": "SHILING",
+  "samples": 150,
+  "strong": [
+   "shiling"
+  ],
+  "learned": [
+   "aug",
+   "noon",
+   "sep",
+   "files",
+   "onboard",
+   "missing",
+   "cullm",
+   "sss",
+   "svsm",
+   "cul",
+   "packet",
+   "rlmg",
+   "ace",
+   "mdl",
+   "kamran"
+  ],
+  "domains": []
+ },
+ "VR_Marine_No_response": {
+  "folder": "VR_Marine_No_response",
+  "samples": 0,
+  "strong": [
+   "marine"
+  ],
+  "learned": [],
+  "domains": []
+ }
+}

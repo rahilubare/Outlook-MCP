@@ -1,0 +1,6 @@
+{
+  "Finance": {"keywords": ["invoice", "payment", "receipt", "refund", "billing"], "domains": []},
+  "HR":      {"keywords": ["resume", "leave", "payroll", "interview", "onboarding"], "domains": []},
+  "Sales":   {"keywords": ["quote", "pricing", "demo", "proposal", "purchase"], "domains": []},
+  "Support": {"keywords": ["issue", "error", "not working", "help", "ticket"], "domains": []}
+}

@@ -1,0 +1,5 @@
+mcp[cli]>=1.2,<2
+httpx
+fastapi
+uvicorn
+pywin32; sys_platform == "win32"
